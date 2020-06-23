@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container top-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title">
+                    <div style="color: brown">
+                        <h1>ПОДПИШИТЕСЬ</h1>
+                        <h3>и будте в курсе о предстоящих акциях</h3>
+                        <h3>и самых последних новостей магазина!</h3>
+                    </div>
+                    <h1>Внесите Ваш Email и имя в форму ниже</h1>
+                </div>
+                <div>
+                    <form action="" method="post" class="form-inline text-center">{% csrf_token %}
+                     <div class="form-group">
+                         <label>Ваш Email: </label>
+                         <input name="{{ form.email.name }}" class="form-control">
+                     </div>
+                     <div class="form-group">
+                         <label>Ваше имя: </label>
+                         <input name="{{ form.name.name }}" class="form-control">
+                     </div>
+                     <button type="submit" class="btn btn-primary btn-orange">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

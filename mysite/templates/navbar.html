@@ -1,0 +1,59 @@
+<!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-top">
+       <h1 style="color: yellow">
+           Магазин "Garderob.by"
+       </h1>
+    </nav>
+    <nav class="navbar navbar-default navbar-main">
+      <div class="container">
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                 aria-expanded="false">Каталог одежды<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'products_men' %}">Мужская одежда</a></li>
+                <li><a href="{% url 'products_women' %}">Женская одежда</a></li>
+                <li><a href="{% url 'products_children' %}">Детская одежда</a></li>
+              </ul>
+            </li>
+            <li><a href="{% url 'discounts' %}">Одежда на скидках</a></li>
+            <li><a href="{% url 'new_items' %}">Новинки</a></li>
+            <li><a href="{% url 'contacts' %}">Контакты</a></li>
+            <li><a href="{% url 'information' %}">Информация о магазине</a></li>
+            <li><a href="{% url 'score' %}">Подписка</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+                <div class="checkout-container">
+                    <a href="{% url 'checkout' %}">
+                        Оформить заказ
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="basket-container">
+                    <a href="">Корзина<span id="basket_total_amount"></span><span id="basket_total_nmb">
+                        {% if products_total_nmb %}
+                            ({{ products_total_nmb }})
+                        {% else %}
+                            (0)
+                        {% endif %}
+                    </span></a>
+                    <div class="basket-items hidden">
+                        <ul class="">
+                            {% for product_in_basket in products_in_basket %}
+                                <li>
+                                    {{ product_in_basket.product.name }} {{ product_in_basket.nmb }} шт.
+                                    по {{ product_in_basket.price_per_item }} BY
+                                    <a class="delete-item" href="" data-product_id="{{ product_in_basket.id }}">x</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>

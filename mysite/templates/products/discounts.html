@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="section section1 men-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="text-center" style="font-weight: bold">
+                        Мужская одежда
+                    </h2>
+                </div>
+                {% for product in products_men %}
+                    {% include 'products/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="section section2 women-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="text-center" style="font-weight: bold">
+                        Женская одежда
+                    </h2>
+                </div>
+                {% for product in products_women %}
+                    {% include 'products/product_item.html' %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <div class="section section3 children-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="text-center" style="font-weight: bold">
+                        Детская одежда
+                    </h2>
+                </div>
+                {% for product in products_children %}
+                     {% include 'products/product_item.html' %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

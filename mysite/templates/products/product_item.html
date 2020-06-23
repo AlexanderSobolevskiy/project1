@@ -1,0 +1,31 @@
+{% load static %}
+
+{% block content %}
+    <div class="col-lg-3">
+        <div class="product-item">
+            <div>
+                <a href="{% url 'product' product.product.id %}">
+                    <img src="{{ product.image.url }}" class="img-responsive your-img">
+                </a>
+            </div>
+
+            {% if product.product.new_items %}
+                <div class="new_items-container">
+                    <span>NEW</span>
+                </div>
+            {% endif %}
+
+            {% if product.product.discount %}
+                <div class="discount-container">
+                    <span>{{ product.product.discount }}%</span>
+                </div>
+            {% endif %}
+
+            <h4 style="font-weight: bolder">{{ product.product.name }}</h4>
+            <p>
+                {{ product.product.description|truncatechars_html:70 }}
+            </p>
+            <h5 style="color: brown; font-weight: 900">{{ product.product.price }} BY</h5>
+        </div>
+    </div>
+{% endblock %}
